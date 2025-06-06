@@ -1,10 +1,16 @@
 import React from 'react';
-import { Text } from '@chakra-ui/react';
+import { Container, Heading, VStack } from '@chakra-ui/react';
+import { TodoList } from '../widgets/TodoList/ui/TodoList';
 
 const App = (): React.ReactElement => {
   return (
-    <Text>Hello World</Text>
+    <Container maxW="container.xl" py={8}>
+      <VStack gap={8}>
+        <Heading>Todo List</Heading>
+        <TodoList />
+      </VStack>
+    </Container>
   );
 };
 
-export default App
+export default App;

@@ -29,8 +29,8 @@ export default defineConfig({
       exposes: {
         './ToDoList': './src/app/App.tsx',
       },
-      shared: ['react', 'react-dom', '@chakra-ui/react'],
-    })
+      shared: ['react', 'react-dom', '@chakra-ui/react', 'zustand'],
+    }),
   ],
   build: {
     modulePreload: false,

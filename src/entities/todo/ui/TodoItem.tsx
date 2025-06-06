@@ -22,23 +22,18 @@ export const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
       <HStack justify="space-between">
         <HStack gap={4}>
           <Checkbox.Root onChange={() => toggleTodo(todo.id)} checked={todo.completed}>
-            <Checkbox.HiddenInput color="teal" />
-            <Checkbox.Control bgColor={todo.completed ? 'teal' : 'transparent'} />
+            <Checkbox.HiddenInput />
+            <Checkbox.Control />
             <Checkbox.Label
               textDecoration={todo.completed ? 'line-through' : 'none'}
-              color={todo.completed ? 'gray.500' : 'teal'}
+              color={todo.completed ? 'gray.500' : 'currentColor'}
             >
               {todo.title}
             </Checkbox.Label>
           </Checkbox.Root>
         </HStack>
-        <IconButton
-          aria-label="Delete todo"
-          colorScheme="red"
-          variant="ghost"
-          onClick={() => deleteTodo(todo.id)}
-        >
-          <MdDeleteOutline color="teal" />
+        <IconButton aria-label="Delete todo" variant="ghost" onClick={() => deleteTodo(todo.id)}>
+          <MdDeleteOutline color="currentColor" />
         </IconButton>
       </HStack>
     </Box>

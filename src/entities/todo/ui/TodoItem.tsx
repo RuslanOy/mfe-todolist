@@ -16,7 +16,10 @@ export const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
       p={4}
       borderWidth="1px"
       borderRadius="lg"
-      _hover={{ bg: 'gray.50', color: todo.completed ? 'gray.500' : 'black' }}
+      _hover={{
+        bg: { base: 'black', _dark: 'white' },
+        color: { base: 'white', _dark: 'black' },
+      }}
       transition="all 0.2s"
     >
       <HStack justify="space-between">
@@ -26,14 +29,22 @@ export const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
             <Checkbox.Control />
             <Checkbox.Label
               textDecoration={todo.completed ? 'line-through' : 'none'}
-              color={todo.completed ? 'gray.500' : 'currentColor'}
             >
               {todo.title}
             </Checkbox.Label>
           </Checkbox.Root>
         </HStack>
-        <IconButton aria-label="Delete todo" variant="ghost" onClick={() => deleteTodo(todo.id)}>
-          <MdDeleteOutline color="currentColor" />
+        <IconButton
+          aria-label="Delete todo"
+          variant="ghost"
+          onClick={() => deleteTodo(todo.id)}
+          _hover={{
+            bg: 'bg',
+            color: 'bg.inverted',
+          }}
+          data-hover="true"
+        >
+          <MdDeleteOutline />
         </IconButton>
       </HStack>
     </Box>
